@@ -12,6 +12,11 @@ def main():
             # Exit the shell
             break
 
+        if command.startswith("echo "):
+            # print with newline at the end
+            print(command[5:])
+            continue
+        
         print(f"{command}: command not found")
 
 
