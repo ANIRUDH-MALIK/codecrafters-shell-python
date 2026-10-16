@@ -11,13 +11,16 @@ def main():
         if command == "exit":
             # Exit the shell
             break
-
-        if command.startswith("echo "):
+        elif command.startswith("echo"):
             # print with newline at the end
             print(command[5:])
-            continue
-        
-        print(f"{command}: command not found")
+        elif command.startswith("type"):
+            if command[5:] in ["exit", "echo", "type"]:
+                print(f"{command[5:]} is a shell builtin")
+            else:
+                print(f"{command[5:]}: not found")
+        else:
+            print(f"{command}: command not found")
 
 
 
